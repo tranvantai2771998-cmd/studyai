@@ -1,0 +1,1544 @@
+<!DOCTYPE html><html class="h-full bg-slate-50 antialiased" lang="vi" style=""><head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>StudyMate AI — Chuyên khoa Y &amp; Nha khoa | BSNT Lâm sàng</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .font-mono-code { font-family: 'JetBrains Mono', monospace; }
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: #f8fafc; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+  </style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" data-snapdom="injected-import"></head>
+<body class="h-full w-full bg-slate-50 text-slate-800 flex overflow-hidden">
+
+  <!-- ==================== SIDEBAR ==================== -->
+  <aside class="w-64 bg-slate-900 text-slate-300 flex-shrink-0 flex flex-col z-30 border-r border-slate-800 transition-transform duration-200 fixed md:static inset-y-0 left-0 -translate-x-full md:translate-x-0" id="main-sidebar">
+    <!-- Brand Header -->
+    <div class="h-16 px-4 flex items-center justify-between border-b border-slate-800 bg-slate-950/70">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-teal-500 to-emerald-400 p-0.5 shadow-sm flex items-center justify-center">
+          <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="stethoscope" aria-hidden="true" class="lucide lucide-stethoscope w-4 h-4 text-teal-400"><path d="M11 2v2"></path><path d="M5 2v2"></path><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"></path><path d="M8 15a6 6 0 0 0 12 0v-3"></path><circle cx="20" cy="10" r="2"></circle></svg>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-extrabold text-sm tracking-tight text-white">StudyMate</span>
+            <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-teal-500/20 text-teal-300 border border-teal-500/30">AI Pro</span>
+          </div>
+          <p class="text-[10px] text-teal-400 font-medium truncate">Y Khoa &amp; Răng Hàm Mặt</p>
+        </div>
+      </div>
+      <button class="md:hidden text-slate-400 hover:text-white p-1" onclick="toggleMobileSidebar()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="x" aria-hidden="true" class="lucide lucide-x w-5 h-5"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+      </button>
+    </div>
+
+    <!-- Active Doctor Profile -->
+    <div class="p-3 mx-3 mt-3 rounded-xl bg-slate-800/80 border border-slate-700/60 flex items-center gap-2.5">
+      <div class="relative shrink-0">
+        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-teal-500 to-indigo-600 flex items-center justify-center text-white font-bold text-xs shadow-sm">
+          BS
+        </div>
+        <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-slate-900 rounded-full"></span>
+      </div>
+      <div class="overflow-hidden flex-1 min-w-0">
+        <h4 class="text-xs font-bold text-white truncate">BS.Trần Văn Tài</h4>
+        <p class="text-[10px] text-teal-400 truncate">ĐH Gia Định</p>
+      </div>
+      <button class="text-slate-400 hover:text-white p-1" title="Cài đặt"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="settings" aria-hidden="true" class="lucide lucide-settings w-3.5 h-3.5"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg></button>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="flex-1 overflow-y-auto px-3 py-3 space-y-1">
+      <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 pb-1">Học phần cơ bản</p>
+      
+      <button class="nav-item w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition" id="btn-nav-dashboard" onclick="navigateTo('dashboard')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout-dashboard" aria-hidden="true" class="lucide lucide-layout-dashboard w-4 h-4 text-teal-400"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg>
+        <span class="">1. Tổng quan (Dashboard)</span>
+      </button>
+
+      <button class="nav-item w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition" id="btn-nav-summarizer" onclick="navigateTo('summarizer')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-text" aria-hidden="true" class="lucide lucide-file-text w-4 h-4 text-slate-400"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>
+        <span class="">2. Tóm tắt bài giảng</span>
+        <span class="ml-auto text-[9px] bg-slate-800 text-teal-300 font-mono py-0.5 px-1.5 rounded">AI</span>
+      </button>
+
+      <button class="nav-item w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition" id="btn-nav-explainer" onclick="navigateTo('explainer')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="lightbulb" aria-hidden="true" class="lucide lucide-lightbulb w-4 h-4 text-slate-400"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
+        <span class="">3. Giải thích 5 Modes</span>
+      </button>
+
+      <button class="nav-item w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition" id="btn-nav-quiz" onclick="navigateTo('quiz')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="help-circle" aria-hidden="true" class="lucide lucide-help-circle w-4 h-4 text-slate-400"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg>
+        <span class="">4. Trắc nghiệm BSNT</span>
+        <span class="ml-auto text-[9px] bg-amber-500/20 text-amber-300 font-bold px-1.5 py-0.5 rounded">Luyện</span>
+      </button>
+
+      <button class="nav-item w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition" id="btn-nav-planner" onclick="navigateTo('planner')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar-clock" aria-hidden="true" class="lucide lucide-calendar-clock w-4 h-4 text-slate-400"><path d="M16 14v2.2l1.6 1"></path><path d="M16 2v3"></path><path d="M21 7.338V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h2.338"></path><path d="M3 9h5.859"></path><path d="M8 2v3"></path><circle cx="16" cy="16" r="6"></circle></svg>
+        <span class="">5. Lộ trình &amp; Pomodoro</span>
+      </button>
+
+      <!-- SPECIALIZED MEDICAL & DENTISTRY SECTION -->
+      <div class="pt-2.5">
+        <div class="flex items-center justify-between px-3 pb-1">
+          <p class="text-[10px] font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sparkle" aria-hidden="true" class="lucide lucide-sparkle w-3 h-3 text-teal-400"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg> Chuyên khoa Y &amp; Nha
+          </p>
+          <span class="text-[8px] bg-teal-500/20 text-teal-300 px-1 py-0.5 rounded font-mono font-bold">17 NHÓM</span>
+        </div>
+        
+        <button class="nav-item w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition" id="btn-nav-meddent-library" onclick="navigateTo('meddent-library')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layers" aria-hidden="true" class="lucide lucide-layers w-4 h-4 text-teal-400"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path></svg>
+          <span class="">Thư viện 17 chuyên ngành</span>
+          <span class="ml-auto text-[9px] bg-teal-900/60 text-teal-300 font-mono py-0.5 px-1.5 rounded">Y+RHM</span>
+        </button>
+
+        <button class="nav-item w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition" id="btn-nav-anatomy" onclick="navigateTo('anatomy')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="bone" aria-hidden="true" class="lucide lucide-bone w-4 h-4 text-amber-400"><path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z"></path></svg>
+          <span class="">Trợ lý Giải phẫu (9 yếu tố)</span>
+        </button>
+
+        <button class="nav-item w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition" id="btn-nav-histology" onclick="navigateTo('histology')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="microscope" aria-hidden="true" class="lucide lucide-microscope w-4 h-4 text-indigo-400"><path d="M6 18h8"></path><path d="M3 22h18"></path><path d="M14 22a7 7 0 1 0 0-14h-1"></path><path d="M9 14h2"></path><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"></path><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"></path></svg>
+          <span class="">Trợ lý Mô học &amp; Tiêu bản</span>
+        </button>
+
+        <button class="nav-item w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition" id="btn-nav-pharmacol" onclick="navigateTo('pharmacol')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="pill" aria-hidden="true" class="lucide lucide-pill w-4 h-4 text-rose-400"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path><path d="m8.5 8.5 7 7"></path></svg>
+          <span class="">Dược lý &amp; Đơn thuốc Nha</span>
+        </button>
+
+        <button class="nav-item w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition" id="btn-nav-clinicalcases" onclick="navigateTo('clinicalcases')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="git-pull-request" aria-hidden="true" class="lucide lucide-git-pull-request w-4 h-4 text-emerald-400"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg>
+          <span class="">Biện luận Ca lâm sàng</span>
+          <span class="ml-auto text-[9px] bg-emerald-500/20 text-emerald-300 px-1 rounded font-bold">Vignettes</span>
+        </button>
+
+        <button class="nav-item w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold transition bg-teal-500/15 text-teal-300 border border-teal-500/20" id="btn-nav-flashcards" onclick="navigateTo('flashcards')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="copy" aria-hidden="true" class="lucide lucide-copy w-4 h-4 text-cyan-400"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+          <span class="">Flashcard Spaced Rep (4 mẫu)</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Bottom Countdown Badge -->
+    <div class="p-3 m-3 rounded-xl bg-slate-800/90 border border-slate-700/80 text-xs">
+      <div class="flex items-center justify-between font-semibold text-teal-300 mb-1.5">
+        <span class="flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="award" aria-hidden="true" class="lucide lucide-award w-3.5 h-3.5 text-amber-400"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg> BS Răng Hàm Mặt&nbsp;</span>
+        <span class="font-mono text-amber-400 font-bold">42 ngày</span>
+      </div>
+      <div class="w-full bg-slate-900 h-1.5 rounded-full overflow-hidden">
+        <div class="bg-gradient-to-r from-teal-500 to-emerald-400 h-full w-[72%] rounded-full"></div>
+      </div>
+      <p class="text-[10px] text-slate-400 mt-1.5 flex justify-between">
+        <span class="">Tiến độ Y - Nha</span>
+        <span class="font-semibold text-slate-300">72%</span>
+      </p>
+    </div>
+  </aside>
+
+  <!-- Mobile Overlay -->
+  <div class="fixed inset-0 bg-slate-900/60 z-20 hidden md:hidden" id="mobile-overlay" onclick="toggleMobileSidebar()"></div>
+
+  <!-- ==================== MAIN WORKSPACE ==================== -->
+  <div class="flex-1 flex flex-col min-w-0 h-full overflow-hidden bg-white">
+    <!-- Top Header -->
+    <header class="h-16 bg-white border-b border-slate-200 px-4 sm:px-6 flex items-center justify-between flex-shrink-0 z-10">
+      <div class="flex items-center gap-3 min-w-0">
+        <button class="md:hidden text-slate-600 hover:text-slate-900 p-1.5 rounded-lg bg-slate-100 shrink-0" onclick="toggleMobileSidebar()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="menu" aria-hidden="true" class="lucide lucide-menu w-5 h-5"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
+        </button>
+        <div class="min-w-0">
+          <div class="flex items-center gap-2">
+            <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-teal-50 border border-teal-200 text-[11px] font-bold text-teal-800">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="stethoscope" aria-hidden="true" class="lucide lucide-stethoscope w-3 h-3 text-teal-600"><path d="M11 2v2"></path><path d="M5 2v2"></path><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"></path><path d="M8 15a6 6 0 0 0 12 0v-3"></path><circle cx="20" cy="10" r="2"></circle></svg>
+              <span class="">Bác Sĩ Răng Hàm Mặt</span>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-3.5 h-3.5 shrink-0 text-slate-300 hidden sm:inline"><path d="m9 18 6-6-6-6"></path></svg>
+            <span class="text-teal-700 font-semibold text-xs truncate hidden sm:inline" id="header-breadcrumb">Thẻ nhớ Spaced Repetition</span>
+          </div>
+          <h1 class="text-xs sm:text-sm font-bold text-slate-900 tracking-tight truncate hidden lg:block" id="header-subtitle">Chế độ Học tập Chuyên khoa Y khoa &amp; Răng Hàm Mặt Lâm sàng</h1>
+        </div>
+      </div>
+
+      <!-- Header Tools & Indicators -->
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <div class="hidden md:flex items-center gap-2 px-2.5 py-1.5 rounded-lg border border-slate-200 bg-slate-50 text-xs text-slate-500">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="search" aria-hidden="true" class="lucide lucide-search w-3.5 h-3.5 text-slate-400"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg>
+          <span class="">Tra cứu ICD-10 / Dược / Giải phẫu...</span>
+          <kbd class="font-mono text-[10px] bg-white border border-slate-200 rounded px-1 py-0.5 text-slate-400">⌘K</kbd>
+        </div>
+
+        <div class="flex items-center gap-1.5 bg-teal-50 border border-teal-200/80 text-teal-800 px-2.5 py-1 rounded-full text-xs font-semibold cursor-pointer" onclick="navigateTo('planner')">
+          <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="timer" aria-hidden="true" class="lucide lucide-timer w-3.5 h-3.5 text-teal-700"><line x1="10" x2="14" y1="2" y2="2"></line><line x1="12" x2="15" y1="14" y2="11"></line><circle cx="12" cy="14" r="8"></circle></svg>
+          <span class="font-mono">25:00</span>
+        </div>
+
+        <div class="flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-amber-800 px-2.5 py-1 rounded-full text-xs font-bold">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="flame" aria-hidden="true" class="lucide lucide-flame w-3.5 h-3.5 fill-amber-500 text-amber-500"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"></path></svg>
+          <span class="">14 ngày</span>
+        </div>
+
+        <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-xl border border-teal-200 bg-teal-50/70 text-xs text-teal-900 font-medium">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="book-check" aria-hidden="true" class="lucide lucide-book-check w-3 h-3 text-teal-600"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"></path><path d="m9 9.5 2 2 4-4"></path></svg>
+          <span class="font-mono text-[11px] font-bold hidden sm:inline">Evidence Citations</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Medical Ethics & Scholarly Disclaimer -->
+    <div class="bg-amber-50/90 border-b border-amber-200/80 px-4 py-1.5 text-[11px] text-amber-900 flex items-center justify-between">
+      <div class="flex items-center gap-2 truncate">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield-alert" aria-hidden="true" class="lucide lucide-shield-alert w-3.5 h-3.5 text-amber-700 shrink-0"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
+        <span class="truncate font-medium"><strong>Lưu ý học thuật &amp; pháp lý:</strong> Hệ thống hỗ trợ ôn tập BSNT &amp; nghiên cứu — Không thay thế phán đoán lâm sàng và chỉ định của bác sĩ điều trị.</span>
+      </div>
+      <div class="flex items-center gap-2 shrink-0 ml-2">
+        <span class="text-[10px] bg-white border border-amber-300 text-amber-800 font-mono px-1.5 py-0.5 rounded font-bold">Harrison • Netter • Goodman &amp; Gilman • Carranza</span>
+      </div>
+    </div>
+
+    <!-- Scrollable Workspace Canvas -->
+    <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 bg-slate-50">
+
+      <!-- ==================== VIEW 1: DASHBOARD ==================== -->
+      <section class="space-y-6 max-w-7xl mx-auto hidden" id="view-dashboard">
+        <!-- Hero Banner -->
+        <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-slate-900 via-teal-950 to-slate-900 p-6 text-white shadow-sm border border-slate-800">
+          <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="space-y-1.5 max-w-2xl">
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-teal-500/20 text-teal-300 text-xs font-medium border border-teal-500/30">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sparkles" aria-hidden="true" class="lucide lucide-sparkles w-3 h-3"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg> Chuyên khoa Y &amp; Nha khoa — Chu kỳ Ebbinghaus Spaced Repetition
+              </div>
+              <h2 class="text-xl md:text-2xl font-extrabold tracking-tight">Chào ngày mới, BSNT. Lê Hoàng Long! 🩺🦷</h2>
+              <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                Hôm nay bạn có <strong class="text-amber-300 font-semibold">2 ca bệnh Hàm Mặt &amp; Nội khoa</strong> cần biện luận, cùng <strong class="text-emerald-300 font-semibold">38 flashcard Giải phẫu Netter &amp; Dược lý Carranza</strong> cần kích hoạt trước 18:00.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2.5 shrink-0">
+              <button class="px-3.5 py-2 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow transition" onclick="navigateTo('meddent-library')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layers" aria-hidden="true" class="lucide lucide-layers w-3.5 h-3.5 fill-slate-950"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path></svg> Mở Thư viện 17 Môn
+              </button>
+              <button class="px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-white font-medium text-xs border border-slate-700 flex items-center gap-1.5 transition" onclick="navigateTo('anatomy')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="bone" aria-hidden="true" class="lucide lucide-bone w-3.5 h-3.5 text-amber-400"><path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z"></path></svg> Khảo sát Giải phẫu 9 yếu tố
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metric KPI Cards -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs hover:border-slate-300 transition">
+            <div class="flex items-center justify-between text-slate-500">
+              <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Chuyên ngành tích hợp</span>
+              <div class="w-8 h-8 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layers" aria-hidden="true" class="lucide lucide-layers w-4 h-4"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path></svg>
+              </div>
+            </div>
+            <div class="mt-2.5 flex items-baseline gap-2">
+              <span class="text-2xl font-black text-slate-900 font-mono">17 / 17</span>
+              <span class="text-xs font-bold text-emerald-600">Y + RHM</span>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-1">10 Y cơ sở &amp; lâm sàng + 7 Răng Hàm Mặt</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs hover:border-slate-300 transition">
+            <div class="flex items-center justify-between text-slate-500">
+              <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Tiêu bản &amp; Cấu trúc GP</span>
+              <div class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-700 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="microscope" aria-hidden="true" class="lucide lucide-microscope w-4 h-4"><path d="M6 18h8"></path><path d="M3 22h18"></path><path d="M14 22a7 7 0 1 0 0-14h-1"></path><path d="M9 14h2"></path><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"></path><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"></path></svg>
+              </div>
+            </div>
+            <div class="mt-2.5 flex items-baseline gap-2">
+              <span class="text-2xl font-black text-slate-900 font-mono">128 hồ sơ</span>
+              <span class="text-xs text-slate-500 font-medium">9 chuẩn</span>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-1">Chuẩn 9 thành tố giải phẫu quốc tế</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs hover:border-slate-300 transition">
+            <div class="flex items-center justify-between text-slate-500">
+              <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Flashcard Active Recall</span>
+              <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="copy" aria-hidden="true" class="lucide lucide-copy w-4 h-4"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+              </div>
+            </div>
+            <div class="mt-2.5 flex items-baseline gap-2">
+              <span class="text-2xl font-black text-slate-900 font-mono">412 thẻ</span>
+              <span class="text-xs font-bold text-emerald-600">4 dạng</span>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-1">Q&amp;A • Định nghĩa • Bảng • Hình ảnh</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs hover:border-slate-300 transition">
+            <div class="flex items-center justify-between text-slate-500">
+              <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Tỷ lệ nhớ Ebbinghaus</span>
+              <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="brain" aria-hidden="true" class="lucide lucide-brain w-4 h-4"><path d="M12 18V5"></path><path d="M15 13a4.17 4.17 0 01-3-4 4.17 4.17 0 01-3 4"></path><path d="M17.707 6.294A3 3 0 1012 5a3 3 0 10-5.707 1.294"></path><path d="M17.996 5.125a4 4 0 012.526 5.77"></path><path d="M18 18a4 4 0 002-7.465"></path><path d="M19.967 17.482a4 4 0 11-7.967.517 4 4 0 11-7.967-.517"></path><path d="M6 18a4 4 0 01-2-7.465"></path><path d="M6.004 5.125a4 4 0 00-2.526 5.77"></path></svg>
+              </div>
+            </div>
+            <div class="mt-2.5 flex items-baseline gap-2">
+              <span class="text-2xl font-black text-emerald-600 font-mono">92.8%</span>
+              <span class="text-xs font-medium text-slate-500">Day 14 Pass</span>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-1">Đường cong trí nhớ duy trì tối ưu</p>
+          </div>
+        </div>
+
+        <!-- Specialized Hub Fast Navigation -->
+        <div class="bg-white p-5 rounded-2xl border border-teal-200 shadow-xs">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+            <div>
+              <h3 class="text-xs font-bold uppercase tracking-wider text-teal-800 flex items-center gap-1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="stethoscope" aria-hidden="true" class="lucide lucide-stethoscope w-4 h-4 text-teal-600"><path d="M11 2v2"></path><path d="M5 2v2"></path><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"></path><path d="M8 15a6 6 0 0 0 12 0v-3"></path><circle cx="20" cy="10" r="2"></circle></svg> Module chuyên khoa Y - Nha khoa chuyên sâu
+              </h3>
+              <p class="text-xs text-slate-500 mt-0.5">Khám phá các trợ lý học thuật chuẩn cấu trúc đào tạo Y khoa Việt Nam &amp; Quốc tế</p>
+            </div>
+            <span class="text-[11px] text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md font-medium">Bấm để chuyển trực tiếp</span>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+            <button onclick="navigateTo('meddent-library')" class="p-3 rounded-xl border border-slate-200 hover:border-teal-500 hover:bg-teal-50/40 text-left transition group">
+              <div class="w-8 h-8 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center mb-2 group-hover:scale-110 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layers" aria-hidden="true" class="lucide lucide-layers w-4 h-4"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path></svg>
+              </div>
+              <div class="text-xs font-bold text-slate-900">17 Chuyên ngành</div>
+              <p class="text-[10px] text-slate-500 mt-0.5">Y cơ sở &amp; RHM</p>
+            </button>
+            <button onclick="navigateTo('anatomy')" class="p-3 rounded-xl border border-slate-200 hover:border-amber-500 hover:bg-amber-50/40 text-left transition group">
+              <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center mb-2 group-hover:scale-110 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="bone" aria-hidden="true" class="lucide lucide-bone w-4 h-4"><path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z"></path></svg>
+              </div>
+              <div class="text-xs font-bold text-slate-900">Giải phẫu 9 yếu tố</div>
+              <p class="text-[10px] text-slate-500 mt-0.5">Vùng Đầu Mặt Cổ</p>
+            </button>
+            <button onclick="navigateTo('histology')" class="p-3 rounded-xl border border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/40 text-left transition group">
+              <div class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-700 flex items-center justify-center mb-2 group-hover:scale-110 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="microscope" aria-hidden="true" class="lucide lucide-microscope w-4 h-4"><path d="M6 18h8"></path><path d="M3 22h18"></path><path d="M14 22a7 7 0 1 0 0-14h-1"></path><path d="M9 14h2"></path><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"></path><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"></path></svg>
+              </div>
+              <div class="text-xs font-bold text-slate-900">Tiêu bản Mô học</div>
+              <p class="text-[10px] text-slate-500 mt-0.5">Vi thể H&amp;E, PAS</p>
+            </button>
+            <button onclick="navigateTo('pharmacol')" class="p-3 rounded-xl border border-slate-200 hover:border-rose-500 hover:bg-rose-50/40 text-left transition group">
+              <div class="w-8 h-8 rounded-lg bg-rose-50 text-rose-700 flex items-center justify-center mb-2 group-hover:scale-110 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="pill" aria-hidden="true" class="lucide lucide-pill w-4 h-4"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path><path d="m8.5 8.5 7 7"></path></svg>
+              </div>
+              <div class="text-xs font-bold text-slate-900">Dược lý &amp; Đơn Nha</div>
+              <p class="text-[10px] text-slate-500 mt-0.5">Lưu ý BRONJ, Chảy máu</p>
+            </button>
+            <button onclick="navigateTo('clinicalcases')" class="p-3 rounded-xl border border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/40 text-left transition group">
+              <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center mb-2 group-hover:scale-110 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="git-pull-request" aria-hidden="true" class="lucide lucide-git-pull-request w-4 h-4"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg>
+              </div>
+              <div class="text-xs font-bold text-slate-900">Biện luận Ca bệnh</div>
+              <p class="text-[10px] text-slate-500 mt-0.5">Lâm sàng từng bước</p>
+            </button>
+            <button onclick="navigateTo('flashcards')" class="p-3 rounded-xl border border-slate-200 hover:border-cyan-500 hover:bg-cyan-50/40 text-left transition group">
+              <div class="w-8 h-8 rounded-lg bg-cyan-50 text-cyan-700 flex items-center justify-center mb-2 group-hover:scale-110 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="copy" aria-hidden="true" class="lucide lucide-copy w-4 h-4"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+              </div>
+              <div class="text-xs font-bold text-slate-900">Active Recall Cards</div>
+              <p class="text-[10px] text-slate-500 mt-0.5">Chấm 4 mức lặp lại</p>
+            </button>
+          </div>
+        </div>
+
+        <!-- Middle Layout: Weekly Activity Chart + Checklist -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="lg:col-span-2 space-y-6">
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <h3 class="text-xs font-bold text-slate-900">Phân bố thời lượng học tập tuần qua (Giờ)</h3>
+                  <p class="text-[11px] text-slate-500 mt-0.5">Đo lường tự động qua các phiên Pomodoro &amp; Đọc tài liệu Y - Nha</p>
+                </div>
+                <span class="text-[11px] bg-slate-100 font-mono text-slate-600 px-2.5 py-1 rounded-md">Tuần 12 / 2025</span>
+              </div>
+              <div class="h-44 flex items-end justify-between gap-3 pt-4 pb-2 px-3 border-b border-slate-100">
+                <div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end group">
+                  <div class="text-[10px] font-mono text-slate-400 group-hover:text-teal-600 font-semibold">5.5h</div>
+                  <div class="w-full bg-slate-100 group-hover:bg-teal-500 rounded-t-md h-[55%] transition-all"></div>
+                  <span class="text-[11px] font-medium text-slate-500">T2</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end group">
+                  <div class="text-[10px] font-mono text-slate-400 group-hover:text-teal-600 font-semibold">7.0h</div>
+                  <div class="w-full bg-slate-100 group-hover:bg-teal-500 rounded-t-md h-[70%] transition-all"></div>
+                  <span class="text-[11px] font-medium text-slate-500">T3</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end group">
+                  <div class="text-[10px] font-mono text-slate-400 group-hover:text-teal-600 font-semibold">8.2h</div>
+                  <div class="w-full bg-slate-100 group-hover:bg-teal-500 rounded-t-md h-[82%] transition-all"></div>
+                  <span class="text-[11px] font-medium text-slate-500">T4</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end group">
+                  <div class="text-[10px] font-mono text-slate-400 group-hover:text-teal-600 font-semibold">6.4h</div>
+                  <div class="w-full bg-slate-100 group-hover:bg-teal-500 rounded-t-md h-[64%] transition-all"></div>
+                  <span class="text-[11px] font-medium text-slate-500">T5</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end group">
+                  <div class="text-[10px] font-mono text-teal-700 font-bold">9.0h</div>
+                  <div class="w-full bg-teal-600 rounded-t-md h-[90%] shadow-sm"></div>
+                  <span class="text-[11px] font-bold text-teal-700">T6 (Nay)</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end group">
+                  <div class="text-[10px] font-mono text-slate-400 group-hover:text-teal-600 font-semibold">6.0h</div>
+                  <div class="w-full bg-slate-100 group-hover:bg-teal-500 rounded-t-md h-[60%] transition-all"></div>
+                  <span class="text-[11px] font-medium text-slate-500">T7</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end group">
+                  <div class="text-[10px] font-mono text-slate-400 group-hover:text-teal-600 font-semibold">6.4h</div>
+                  <div class="w-full bg-slate-100 group-hover:bg-teal-500 rounded-t-md h-[64%] transition-all"></div>
+                  <span class="text-[11px] font-medium text-slate-500">CN</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Spaced Rep Checklist -->
+          <div class="space-y-4">
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-2">
+                  <div class="w-6 h-6 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-square" aria-hidden="true" class="lucide lucide-check-square w-4 h-4"><path d="M21 10.656V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12.344"></path><path d="m9 11 3 3L22 4"></path></svg>
+                  </div>
+                  <h3 class="text-xs font-bold text-slate-900">Checklist ôn tập hôm nay</h3>
+                </div>
+                <span class="text-[10px] font-bold bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full border border-emerald-200">2/4 Đạt</span>
+              </div>
+              <p class="text-[11px] text-slate-500 mb-3.5 leading-relaxed">
+                Theo dõi đường cong quên Ebbinghaus: Ôn tập ngắt quãng trước 18:00.
+              </p>
+              <div class="space-y-2.5">
+                <div class="p-3 rounded-xl border border-slate-200 bg-slate-50/70 flex items-start gap-2.5">
+                  <input checked="" class="mt-0.5 rounded border-slate-300 text-teal-600" type="checkbox">
+                  <div class="flex-1 min-w-0 text-xs">
+                    <p class="font-medium text-slate-400 line-through truncate">Mạch thần kinh Hố Chân Bướm Hàm &amp; Dây V2</p>
+                    <span class="text-[10px] text-slate-400">Hoàn thành lúc 07:45</span>
+                  </div>
+                </div>
+                <div class="p-3 rounded-xl border border-teal-200 bg-teal-50/40 flex items-start gap-2.5">
+                  <input checked="" class="mt-0.5 rounded border-slate-300 text-teal-600" type="checkbox">
+                  <div class="flex-1 min-w-0 text-xs">
+                    <p class="font-medium text-slate-400 line-through truncate">Dược lý Bisphosphonate &amp; Nguy cơ BRONJ</p>
+                    <span class="text-[10px] text-teal-700 font-medium">Day 7 Review • 100% đúng</span>
+                  </div>
+                </div>
+                <div class="p-3 rounded-xl border border-slate-200 bg-white flex items-start gap-2.5 hover:border-slate-300 transition">
+                  <input class="mt-0.5 rounded border-slate-300 text-teal-600" type="checkbox">
+                  <div class="flex-1 min-w-0 text-xs">
+                    <p class="font-bold text-slate-900 truncate">Ca bệnh Viêm tấy lan tỏa sàn miệng (Ludwig)</p>
+                    <span class="text-[10px] font-semibold text-rose-700 bg-rose-50 px-1.5 py-0.5 rounded">Ưu tiên cao</span>
+                  </div>
+                  <button class="text-slate-400 hover:text-teal-700 p-1 shrink-0" onclick="navigateTo('clinicalcases')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="play" aria-hidden="true" class="lucide lucide-play w-4 h-4"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path></svg>
+                  </button>
+                </div>
+                <div class="p-3 rounded-xl border border-slate-200 bg-white flex items-start gap-2.5 hover:border-slate-300 transition">
+                  <input class="mt-0.5 rounded border-slate-300 text-teal-600" type="checkbox">
+                  <div class="flex-1 min-w-0 text-xs">
+                    <p class="font-bold text-slate-900 truncate">Nhận diện Tiêu bản Men - Ngà răng</p>
+                    <span class="text-[10px] text-indigo-700 bg-indigo-50 px-1.5 py-0.5 rounded">Mô học</span>
+                  </div>
+                  <button class="text-slate-400 hover:text-amber-700 p-1 shrink-0" onclick="navigateTo('histology')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" aria-hidden="true" class="lucide lucide-arrow-right w-4 h-4"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW: 17 MEDICAL & DENTAL SUBJECTS ==================== -->
+      <section class="space-y-6 max-w-7xl mx-auto hidden" id="view-meddent-library">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200">
+          <div>
+            <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+              <span class="p-1.5 rounded-xl bg-teal-50 text-teal-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layers" aria-hidden="true" class="lucide lucide-layers w-4 h-4"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path></svg></span>
+              Thư viện 17 Chuyên ngành Y khoa &amp; Răng Hàm Mặt
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">Phân loại chuẩn hóa Y cơ sở, Y học Lâm sàng và Khối Răng Hàm Mặt chuyên sâu.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="addCustomSubject()" class="px-3 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="plus-circle" aria-hidden="true" class="lucide lucide-plus-circle w-3.5 h-3.5"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg> Thêm chuyên khoa mới
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button class="sub-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-white" onclick="filterSubs('all', this)">Tất cả (17 chuyên ngành)</button>
+          <button class="sub-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white text-slate-700 border border-slate-200 hover:bg-slate-50" onclick="filterSubs('basic', this)">Y học Cơ sở (8)</button>
+          <button class="sub-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white text-slate-700 border border-slate-200 hover:bg-slate-50" onclick="filterSubs('clinical', this)">Y khoa Lâm sàng (2)</button>
+          <button class="sub-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white text-slate-700 border border-slate-200 hover:bg-slate-50" onclick="filterSubs('dental', this)">Khối Răng Hàm Mặt (7)</button>
+        </div>
+
+        <!-- Grid of 17 Subjects -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="subjects-container">
+        <div class="bg-white p-4 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-xs transition space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="bone" aria-hidden="true" class="lucide lucide-bone w-4 h-4"><path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z"></path></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-bold">MED-101</span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">Giải phẫu học (Anatomy)</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">48 bài • Netter 7th</p>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-[10px] text-teal-700 font-semibold uppercase tracking-wider">Y cơ sở</span>
+            <button onclick="navigateTo('anatomy')" class="text-slate-600 hover:text-teal-700 font-medium text-[11px] flex items-center gap-1">Khảo sát <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-3 h-3"><path d="m9 18 6-6-6-6"></path></svg></button>
+          </div>
+        </div>
+      
+        <div class="bg-white p-4 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-xs transition space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="microscope" aria-hidden="true" class="lucide lucide-microscope w-4 h-4"><path d="M6 18h8"></path><path d="M3 22h18"></path><path d="M14 22a7 7 0 1 0 0-14h-1"></path><path d="M9 14h2"></path><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"></path><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"></path></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-bold">MED-102</span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">Mô học &amp; Tiêu bản (Histology)</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">32 tiêu bản H&amp;E</p>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-[10px] text-teal-700 font-semibold uppercase tracking-wider">Y cơ sở</span>
+            <button onclick="navigateTo('anatomy')" class="text-slate-600 hover:text-teal-700 font-medium text-[11px] flex items-center gap-1">Khảo sát <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-3 h-3"><path d="m9 18 6-6-6-6"></path></svg></button>
+          </div>
+        </div>
+      
+        <div class="bg-white p-4 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-xs transition space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" aria-hidden="true" class="lucide lucide-activity w-4 h-4"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-bold">MED-103</span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">Sinh lý học (Physiology)</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">40 bài • Guyton</p>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-[10px] text-teal-700 font-semibold uppercase tracking-wider">Y cơ sở</span>
+            <button onclick="navigateTo('anatomy')" class="text-slate-600 hover:text-teal-700 font-medium text-[11px] flex items-center gap-1">Khảo sát <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-3 h-3"><path d="m9 18 6-6-6-6"></path></svg></button>
+          </div>
+        </div>
+      
+        <div class="bg-white p-4 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-xs transition space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="atom" aria-hidden="true" class="lucide lucide-atom w-4 h-4"><circle cx="12" cy="12" r="1"></circle><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"></path><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"></path></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-bold">MED-104</span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">Hóa sinh y học (Biochemistry)</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">28 chu trình Harper</p>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-[10px] text-teal-700 font-semibold uppercase tracking-wider">Y cơ sở</span>
+            <button onclick="navigateTo('anatomy')" class="text-slate-600 hover:text-teal-700 font-medium text-[11px] flex items-center gap-1">Khảo sát <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-3 h-3"><path d="m9 18 6-6-6-6"></path></svg></button>
+          </div>
+        </div>
+      
+        <div class="bg-white p-4 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-xs transition space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="bug" aria-hidden="true" class="lucide lucide-bug w-4 h-4"><path d="M12 20v-9"></path><path d="M14 7a4 4 0 0 1 4 4v3a6 6 0 0 1-12 0v-3a4 4 0 0 1 4-4z"></path><path d="M14.12 3.88 16 2"></path><path d="M21 21a4 4 0 0 0-3.81-4"></path><path d="M21 5a4 4 0 0 1-3.55 3.97"></path><path d="M22 13h-4"></path><path d="M3 21a4 4 0 0 1 3.81-4"></path><path d="M3 5a4 4 0 0 0 3.55 3.97"></path><path d="M6 13H2"></path><path d="m8 2 1.88 1.88"></path><path d="M9 7.13V6a3 3 0 1 1 6 0v1.13"></path></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-bold">MED-105</span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">Vi sinh y học (Microbiology)</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">35 chủng khuẩn</p>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-[10px] text-teal-700 font-semibold uppercase tracking-wider">Y cơ sở</span>
+            <button onclick="navigateTo('anatomy')" class="text-slate-600 hover:text-teal-700 font-medium text-[11px] flex items-center gap-1">Khảo sát <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-3 h-3"><path d="m9 18 6-6-6-6"></path></svg></button>
+          </div>
+        </div>
+      
+        <div class="bg-white p-4 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-xs transition space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield-check" aria-hidden="true" class="lucide lucide-shield-check w-4 h-4"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-bold">MED-106</span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">Miễn dịch học (Immunology)</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">24 cơ chế tế bào</p>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-[10px] text-teal-700 font-semibold uppercase tracking-wider">Y cơ sở</span>
+            <button onclick="navigateTo('anatomy')" class="text-slate-600 hover:text-teal-700 font-medium text-[11px] flex items-center gap-1">Khảo sát <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-3 h-3"><path d="m9 18 6-6-6-6"></path></svg></button>
+          </div>
+        </div>
+      
+        <div class="bg-white p-4 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-xs transition space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-search" aria-hidden="true" class="lucide lucide-file-search w-4 h-4"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><circle cx="11.5" cy="14.5" r="2.5"></circle><path d="M13.3 16.3 15 18"></path></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-bold">MED-107</span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">Giải phẫu bệnh (Pathology)</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">50 ca bệnh Robbins</p>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-[10px] text-teal-700 font-semibold uppercase tracking-wider">Y cơ sở</span>
+            <button onclick="navigateTo('anatomy')" class="text-slate-600 hover:text-teal-700 font-medium text-[11px] flex items-center gap-1">Khảo sát <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-3 h-3"><path d="m9 18 6-6-6-6"></path></svg></button>
+          </div>
+        </div>
+      
+        <div class="bg-white p-4 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-xs transition space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="pill" aria-hidden="true" class="lucide lucide-pill w-4 h-4"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path><path d="m8.5 8.5 7 7"></path></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-bold">MED-108</span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">Dược lý học (Pharmacology)</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">65 nhóm thuốc</p>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-[10px] text-teal-700 font-semibold uppercase tracking-wider">Y cơ sở</span>
+            <button onclick="navigateTo('anatomy')" class="text-slate-600 hover:text-teal-700 font-medium text-[11px] flex items-center gap-1">Khảo sát <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-3 h-3"><path d="m9 18 6-6-6-6"></path></svg></button>
+          </div>
+        </div>
+      
+        <div class="bg-white p-4 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-xs transition space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="stethoscope" aria-hidden="true" class="lucide lucide-stethoscope w-4 h-4"><path d="M11 2v2"></path><path d="M5 2v2"></path><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"></path><path d="M8 15a6 6 0 0 0 12 0v-3"></path><circle cx="20" cy="10" r="2"></circle></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-bold">MED-201</span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">Y khoa Tổng quát (General Medicine)</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">55 hội chứng Harrison</p>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-[10px] text-teal-700 font-semibold uppercase tracking-wider">Lâm sàng</span>
+            <button onclick="navigateTo('anatomy')" class="text-slate-600 hover:text-teal-700 font-medium text-[11px] flex items-center gap-1">Khảo sát <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-3 h-3"><path d="m9 18 6-6-6-6"></path></svg></button>
+          </div>
+        </div>
+      
+        <div class="bg-white p-4 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-xs transition space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sparkles" aria-hidden="true" class="lucide lucide-sparkles w-4 h-4"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-bold">DEN-101</span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">Khối Răng Hàm Mặt Cơ sở (Dentistry)</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">18 bài tổng quan</p>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-[10px] text-teal-700 font-semibold uppercase tracking-wider">Răng Hàm Mặt</span>
+            <button onclick="navigateTo('anatomy')" class="text-slate-600 hover:text-teal-700 font-medium text-[11px] flex items-center gap-1">Khảo sát <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-3 h-3"><path d="m9 18 6-6-6-6"></path></svg></button>
+          </div>
+        </div>
+      
+        <div class="bg-white p-4 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-xs transition space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="smile" aria-hidden="true" class="lucide lucide-smile w-4 h-4"><path d="M15 10V9"></path><path d="M16.472 15a6 6 0 01-8.943 0"></path><path d="M9 10V9"></path><circle cx="12" cy="12" r="10"></circle></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-bold">DEN-102</span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">Giải phẫu Răng &amp; Miệng (Oral Anatomy)</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">32 bộ răng Wheeler</p>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-[10px] text-teal-700 font-semibold uppercase tracking-wider">Răng Hàm Mặt</span>
+            <button onclick="navigateTo('anatomy')" class="text-slate-600 hover:text-teal-700 font-medium text-[11px] flex items-center gap-1">Khảo sát <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-3 h-3"><path d="m9 18 6-6-6-6"></path></svg></button>
+          </div>
+        </div>
+      
+        <div class="bg-white p-4 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-xs transition space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="alert-triangle" aria-hidden="true" class="lucide lucide-alert-triangle w-4 h-4"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-bold">DEN-103</span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">Bệnh học Miệng (Oral Pathology)</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">42 ca Nevile</p>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-[10px] text-teal-700 font-semibold uppercase tracking-wider">Răng Hàm Mặt</span>
+            <button onclick="navigateTo('anatomy')" class="text-slate-600 hover:text-teal-700 font-medium text-[11px] flex items-center gap-1">Khảo sát <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-3 h-3"><path d="m9 18 6-6-6-6"></path></svg></button>
+          </div>
+        </div>
+      
+        <div class="bg-white p-4 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-xs transition space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield" aria-hidden="true" class="lucide lucide-shield w-4 h-4"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-bold">DEN-104</span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">Nha chu học (Periodontology)</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">30 bài Carranza 13th</p>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-[10px] text-teal-700 font-semibold uppercase tracking-wider">Răng Hàm Mặt</span>
+            <button onclick="navigateTo('anatomy')" class="text-slate-600 hover:text-teal-700 font-medium text-[11px] flex items-center gap-1">Khảo sát <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-3 h-3"><path d="m9 18 6-6-6-6"></path></svg></button>
+          </div>
+        </div>
+      
+        <div class="bg-white p-4 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-xs transition space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="zap" aria-hidden="true" class="lucide lucide-zap w-4 h-4"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z"></path></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-bold">DEN-105</span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">Nội nha học (Endodontics)</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">26 quy trình Cohen</p>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-[10px] text-teal-700 font-semibold uppercase tracking-wider">Răng Hàm Mặt</span>
+            <button onclick="navigateTo('anatomy')" class="text-slate-600 hover:text-teal-700 font-medium text-[11px] flex items-center gap-1">Khảo sát <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-3 h-3"><path d="m9 18 6-6-6-6"></path></svg></button>
+          </div>
+        </div>
+      
+        <div class="bg-white p-4 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-xs transition space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layers" aria-hidden="true" class="lucide lucide-layers w-4 h-4"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-bold">DEN-106</span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">Phục hình Răng (Prosthodontics)</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">34 ca Shillingburg</p>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-[10px] text-teal-700 font-semibold uppercase tracking-wider">Răng Hàm Mặt</span>
+            <button onclick="navigateTo('anatomy')" class="text-slate-600 hover:text-teal-700 font-medium text-[11px] flex items-center gap-1">Khảo sát <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-3 h-3"><path d="m9 18 6-6-6-6"></path></svg></button>
+          </div>
+        </div>
+      
+        <div class="bg-white p-4 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-xs transition space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="box" aria-hidden="true" class="lucide lucide-box w-4 h-4"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-bold">DEN-107</span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">Vật liệu Nha khoa (Dental Materials)</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">22 hợp chất Craig</p>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-[10px] text-teal-700 font-semibold uppercase tracking-wider">Răng Hàm Mặt</span>
+            <button onclick="navigateTo('anatomy')" class="text-slate-600 hover:text-teal-700 font-medium text-[11px] flex items-center gap-1">Khảo sát <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-3 h-3"><path d="m9 18 6-6-6-6"></path></svg></button>
+          </div>
+        </div>
+      
+        <div class="bg-white p-4 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-xs transition space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="scissors" aria-hidden="true" class="lucide lucide-scissors w-4 h-4"><circle cx="6" cy="6" r="3"></circle><path d="M8.12 8.12 12 12"></path><path d="M20 4 8.12 15.88"></path><circle cx="6" cy="18" r="3"></circle><path d="M14.8 14.8 20 20"></path></svg>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-bold">DEN-108</span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">Phẫu thuật Hàm Mặt (OMFS)</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">45 ca lâm sàng Peterson</p>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-[10px] text-teal-700 font-semibold uppercase tracking-wider">Răng Hàm Mặt</span>
+            <button onclick="navigateTo('anatomy')" class="text-slate-600 hover:text-teal-700 font-medium text-[11px] flex items-center gap-1">Khảo sát <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-3 h-3"><path d="m9 18 6-6-6-6"></path></svg></button>
+          </div>
+        </div>
+      </div>
+      </section>
+
+      <!-- ==================== VIEW: ANATOMY ASSISTANT (9 ELEMENTS) ==================== -->
+      <section class="space-y-6 max-w-7xl mx-auto hidden" id="view-anatomy">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200">
+          <div>
+            <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+              <span class="p-1.5 rounded-xl bg-amber-50 text-amber-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="bone" aria-hidden="true" class="lucide lucide-bone w-4 h-4"><path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z"></path></svg></span>
+              Trợ lý Giải phẫu học Chuẩn 9 Thành tố &amp; Vùng Đầu Mặt Cổ
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">Khảo sát toàn diện theo quy chuẩn giải phẫu Netter, Moore và ứng dụng thực hành Răng Hàm Mặt.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-slate-400">Chọn cấu trúc mẫu:</span>
+            <button class="px-2.5 py-1.5 rounded-lg bg-amber-50 text-amber-900 border border-amber-200 text-xs font-semibold hover:bg-amber-100 transition" onclick="loadAnatomy('v3_spix')">Dây V3 &amp; Gai Spix</button>
+            <button class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-800 transition" onclick="loadAnatomy('pterygopalatine')">Hố chân bướm hàm</button>
+            <button class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-800 transition" onclick="loadAnatomy('facial_nerve')">Dây VII &amp; Tuyến mang tai</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <!-- Left Controls (4 cols) -->
+          <div class="lg:col-span-4 space-y-4">
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs space-y-3">
+              <label class="block text-xs font-bold text-slate-700">Tra cứu cấu trúc giải phẫu</label>
+              <div class="relative">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="search" aria-hidden="true" class="lucide lucide-search w-4 h-4 text-slate-400 absolute left-3 top-2.5"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg>
+                <input type="text" id="anatomy-input" class="w-full text-xs font-semibold pl-9 pr-3 py-2 rounded-xl border border-slate-300 focus:border-amber-600 focus:ring-1 outline-none" value="Thần kinh xương ổ răng dưới (V3) &amp; Lỗ hàm dưới (Gai Spix)">
+              </div>
+              <button onclick="runAnatomy()" class="w-full py-2 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sparkles" aria-hidden="true" class="lucide lucide-sparkles w-3.5 h-3.5 text-amber-400"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg> Phân tích 9 thành tố
+              </button>
+            </div>
+
+            <!-- Differential Comparison Box -->
+            <div class="bg-amber-50/70 p-4 rounded-2xl border border-amber-200 shadow-xs space-y-2.5">
+              <div class="flex items-center gap-1.5 text-xs font-bold text-amber-900">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="git-compare" aria-hidden="true" class="lucide lucide-git-compare w-4 h-4 text-amber-700"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><path d="M11 18H8a2 2 0 0 1-2-2V9"></path></svg>
+                <span class="">Đối chiếu cấu trúc &amp; Kỹ thuật gây tê</span>
+              </div>
+              <p class="text-[11px] text-amber-800 leading-relaxed">
+                So sánh nhanh: <strong>Gây tê Gai Spix (IANB)</strong> vs <strong>Kỹ thuật Gow-Gates / Akinosi</strong>.
+              </p>
+              <div class="p-2.5 bg-white rounded-xl border border-amber-200 text-[11px] text-slate-700 space-y-1">
+                <div class="font-bold text-slate-900">Mốc gây tê Gai Spix kinh điển:</div>
+                <p class="text-slate-600">• Mốc kim: 1cm trên mặt nhai răng cối lớn dưới, nếp chân bướm hàm.</p>
+                <p class="text-slate-600">• Nguy cơ: Tiêm vào tuyến mang tai gây liệt mặt tạm thời (Dây VII).</p>
+              </div>
+            </div>
+
+            <!-- Schematic Diagram Box -->
+            <div class="bg-slate-900 text-white p-4 rounded-2xl border border-slate-800 space-y-2">
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-bold text-teal-300 flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="network" aria-hidden="true" class="lucide lucide-network w-3.5 h-3.5"><rect x="16" y="16" width="6" height="6" rx="1"></rect><rect x="2" y="16" width="6" height="6" rx="1"></rect><rect x="9" y="2" width="6" height="6" rx="1"></rect><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path><path d="M12 12V8"></path></svg> Sơ đồ phân nhánh V3</span>
+                <span class="text-[10px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">Netter Plate 54</span>
+              </div>
+              <div class="p-3 bg-slate-950 rounded-xl font-mono text-[11px] text-teal-300 leading-relaxed border border-slate-800">
+                <div class="">[Thần kinh Sinh Ba V]</div>
+                <div class="pl-2">└── Phân nhánh V3 (Lỗ Bầu Dục)</div>
+                <div class="pl-5">├── TK Răng dưới ──&gt; Ống Hàm Dưới (Gai Spix)</div>
+                <div class="pl-5">├── TK Lưỡi ──&gt; Cảm giác 2/3 trước lưỡi</div>
+                <div class="pl-5">└── TK Má ──&gt; Niêm mạc má R cối lớn</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: The 9-Element Standard Dossier (8 cols) -->
+          <div class="lg:col-span-8">
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
+              <div class="bg-slate-900 text-white px-5 py-3.5 flex items-center justify-between border-b border-slate-800">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                  <h3 class="text-xs font-bold uppercase tracking-wider" id="anat-title">Hồ sơ 9 Thành tố: Thần kinh Xương ổ răng dưới &amp; Lỗ hàm dưới (Foramen Mandibulare)</h3>
+                </div>
+                <span class="text-[10px] font-mono text-amber-300 bg-amber-950 px-2 py-0.5 rounded border border-amber-800/80">Terminologia Anatomica</span>
+              </div>
+
+              <div class="p-6 space-y-3.5 text-xs text-slate-700 leading-relaxed" id="anat-body">
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <strong class="text-slate-900 block mb-0.5">1. Vị trí giải phẫu (Location):</strong>
+                  <p class="">Mặt trong ngành lên xương hàm dưới (Ramus mandibulae), cách bờ trước và sau khoảng giữa, cao hơn mặt phẳng nhai các răng cối hàm dưới 10-12 mm.</p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <strong class="text-slate-900 block mb-0.5">2. Ranh giới &amp; Khung giới hạn (Boundaries):</strong>
+                  <p class="">Phía trước và trên lỗ hàm dưới có mỏm xương hình lưỡi gọi là <strong>Gai Spix (Lingula mandibulae)</strong>, nơi bám của dây chằng bướm-hàm dưới.</p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <strong class="text-slate-900 block mb-0.5">3. Cấu trúc thành phần (Components):</strong>
+                  <p class="">Bó mạch - thần kinh xương ổ răng dưới (Động mạch, Tĩnh mạch, Thần kinh IAN) chui vào ống hàm dưới cùng nhánh cơ hàm móng tách trước lỗ.</p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <strong class="text-slate-900 block mb-0.5">4. Liên quan giải phẫu lân cận (Relations):</strong>
+                  <p class="">Phía trong là cơ chân bướm trong. Phía trước-trong là <strong>Thần kinh lưỡi (Lingual nerve)</strong> nằm nông hơn. Phía sau là thùy sâu tuyến mang tai.</p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <strong class="text-slate-900 block mb-0.5">5. Mạch máu nuôi dưỡng (Vascular Supply):</strong>
+                  <p class="">Động mạch xương ổ răng dưới (nhánh ĐM hàm trên, đoạn 1) đi kèm TM dẫn lưu về đám rối chân bướm.</p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <strong class="text-slate-900 block mb-0.5">6. Chi phối thần kinh (Innervation):</strong>
+                  <p class="">Nhánh tận cảm giác của phân nhánh V3 (Dây V). Cung cấp cảm giác cho toàn bộ răng, tủy và xương ổ răng nửa hàm dưới cùng bên.</p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <strong class="text-slate-900 block mb-0.5">7. Chức năng sinh lý (Function):</strong>
+                  <p class="">Dẫn truyền cảm giác áp lực nhai, nhiệt độ và cảm giác đau từ cung răng dưới, nướu và môi dưới (qua nhánh thần kinh cằm).</p>
+                </div>
+
+                <!-- 8. Clinical & Dental Pearl -->
+                <div class="p-3.5 rounded-xl bg-amber-50/90 border border-amber-300">
+                  <div class="font-bold text-amber-950 mb-1 flex items-center gap-1.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="alert-octagon" aria-hidden="true" class="lucide lucide-alert-octagon w-4 h-4 text-amber-700"><path d="M12 16h.01"></path><path d="M12 8v4"></path><path d="M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z"></path></svg>
+                    8. Ý nghĩa Lâm sàng &amp; Ứng dụng Nha khoa (Dental Considerations):
+                  </div>
+                  <ul class="list-disc list-inside space-y-1 text-amber-900 font-medium">
+                    <li class=""><strong>Gây tê gai Spix:</strong> Nếu đâm kim quá sâu về phía sau sẽ tiêm vào bao tuyến mang tai, gây tê liệt tạm thời <strong>Dây thần kinh VII</strong> (mắt nhắm không kín, xệ khóe miệng cùng bên sau 10 phút).</li>
+                    <li class=""><strong>Cắm Implant &amp; Nhổ R8 ngầm:</strong> Bắt buộc chụp CBCT đo khoảng cách từ chóp chân răng tới bờ trên Ống hàm dưới để tránh biến chứng dị cảm môi cằm vĩnh viễn (Vincent's symptom).</li>
+                  </ul>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <strong class="text-slate-900 block mb-0.5">9. Biến thể giải phẫu thường gặp (Variations):</strong>
+                  <p class="">Ống hàm dưới hai nhánh (Bifid canal) gặp ở 0.5-1% dân số; sự hiện diện của lỗ hậu hàm (Retromolar foramen) có thể gây thất bại khi gây tê gai Spix kinh điển.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW: HISTOLOGY SPECIMEN ASSISTANT ==================== -->
+      <section class="space-y-6 max-w-7xl mx-auto hidden" id="view-histology">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200">
+          <div>
+            <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+              <span class="p-1.5 rounded-xl bg-indigo-50 text-indigo-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="microscope" aria-hidden="true" class="lucide lucide-microscope w-4 h-4"><path d="M6 18h8"></path><path d="M3 22h18"></path><path d="M14 22a7 7 0 1 0 0-14h-1"></path><path d="M9 14h2"></path><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"></path><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"></path></svg></span>
+              Trợ lý Mô học &amp; Tiêu bản Vi thể (Histology Specimen)
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">Khảo sát vi thể, hình thái tế bào, chất gian bào &amp; câu hỏi phản xạ nhận diện mô học.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button class="px-2.5 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 border border-indigo-200 text-xs font-bold hover:bg-indigo-100 transition" onclick="loadHisto('dej')">
+              Men - Ngà răng (DEJ)
+            </button>
+            <button class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-800 transition" onclick="loadHisto('pdl')">
+              Dây chằng nha chu (PDL)
+            </button>
+            <button class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-800 transition" onclick="loadHisto('mucosa')">
+              Biểu mô niêm mạc miệng
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div class="lg:col-span-5 space-y-4">
+            <div class="bg-slate-900 text-white p-4 rounded-2xl border border-slate-800 space-y-3">
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-bold text-teal-400 flex items-center gap-1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="camera" aria-hidden="true" class="lucide lucide-camera w-4 h-4"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z"></path><circle cx="12" cy="13" r="3"></circle></svg> Tiêu bản quang học ảo
+                </span>
+                <span class="font-mono text-[10px] bg-slate-800 text-teal-300 px-2 py-0.5 rounded font-bold" id="histo-stain">Nhuộm H&amp;E (40X)</span>
+              </div>
+
+              <!-- Viewport -->
+              <div class="relative aspect-4/3 rounded-xl bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950 border-2 border-slate-700 flex items-center justify-center p-6 text-center">
+                <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <div class="relative z-10 space-y-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="eye" aria-hidden="true" class="lucide lucide-eye w-10 h-10 text-indigo-400 mx-auto animate-pulse"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <h4 class="text-sm font-bold text-white tracking-tight" id="histo-title">Ranh giới Men - Ngà (Dentino-Enamel Junction - DEJ)</h4>
+                  <p class="text-[11px] text-slate-300 max-w-xs mx-auto" id="histo-desc">Trụ men hình lục giác bắt màu bazơ nhẹ, đường vạch Retzius và các ống ngà lượn cong hình chữ S chứa sợi Tomes.</p>
+                </div>
+              </div>
+
+              <!-- Identification Quiz Question -->
+              <div class="p-3.5 bg-slate-800/80 rounded-xl border border-slate-700 space-y-2 text-xs">
+                <div class="font-bold text-amber-300 flex items-center gap-1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="help-circle" aria-hidden="true" class="lucide lucide-help-circle w-3.5 h-3.5"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg> Câu hỏi phản xạ nhận diện vi thể:
+                </div>
+                <p class="text-slate-200 font-medium">Cấu trúc kéo dài từ nguyên bào ngà chạy xuyên suốt chiều dày ống ngà được gọi là gì?</p>
+                <div class="flex items-center justify-between pt-1">
+                  <button onclick="revealHisto()" class="text-[11px] font-bold text-teal-400 hover:text-teal-300">Xem đáp án phản xạ</button>
+                  <span class="hidden font-mono font-bold text-emerald-400 text-xs" id="histo-ans">Đáp án: Nhánh Tomes (Tomes' fiber)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 space-y-4">
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-xs p-6 space-y-4 text-xs">
+              <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded-full">Phân tích hình thái</span>
+                  <h3 class="text-sm font-bold text-slate-900 mt-1.5">Đặc điểm hình thái tế bào &amp; Ma trận ngoại bào</h3>
+                </div>
+                <span class="text-[11px] text-slate-400 font-mono">Ten Cate's Oral Histology</span>
+              </div>
+
+              <div class="space-y-3 leading-relaxed text-slate-700">
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <strong class="text-slate-900 block mb-0.5">1. Đặc điểm tế bào &amp; Bào quan:</strong>
+                  <p class="">Nguyên bào ngà (Odontoblasts) xếp thành hàng đơn cực ở ranh giới tủy - ngà, nhân lệch về cực đáy tế bào, bộ máy Golgi và lưới nội chất phát triển mạnh để chế tiết tiền ngà.</p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <strong class="text-slate-900 block mb-0.5">2. Ma trận gian bào &amp; Thành phần vô cơ:</strong>
+                  <p class="">Men răng chứa 96% tinh thể hydroxyapatite canxi (vô cơ), xếp thành các trụ men lượn sóng. Ngà răng chứa 70% khoáng và 20% khung hữu cơ chủ yếu là sợi Collagen type I.</p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <strong class="text-slate-900 block mb-0.5">3. Chẩn đoán phân biệt mô học:</strong>
+                  <p class=""><strong>Ngà quanh ống (Peritubular dentin)</strong> khoáng hóa rất cao, bắt màu nhạt hơn so với <strong>Ngà gian ống (Intertubular dentin)</strong>. Cần phân biệt đường tăng trưởng Owen (trong ngà) với đường Retzius (trong men).</p>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-rose-50/70 border border-rose-200 text-rose-950 font-medium">
+                  <div class="flex items-center gap-1.5 font-bold text-rose-800 mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="alert-triangle" aria-hidden="true" class="lucide lucide-alert-triangle w-3.5 h-3.5 text-rose-600"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg> Lưu ý chuẩn đào tạo y khoa:
+                  </div>
+                  Quan sát mô học vi thể phục vụ mục đích đào tạo và hiểu cơ chế bệnh sinh học thuật — Không thay thế kết luận Giải phẫu bệnh lâm sàng của Bác sĩ GPB có chứng chỉ hành nghề.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW: PHARMACOLOGY & DENTAL PRESCRIBING ==================== -->
+      <section class="space-y-6 max-w-7xl mx-auto hidden" id="view-pharmacol">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200">
+          <div>
+            <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+              <span class="p-1.5 rounded-xl bg-rose-50 text-rose-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="pill" aria-hidden="true" class="lucide lucide-pill w-4 h-4"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path><path d="m8.5 8.5 7 7"></path></svg></span>
+              Trợ lý Dược lý Lâm sàng &amp; Đơn thuốc Nha khoa
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">Thẻ dược chất chuẩn y khoa: MOA, ADR và ĐẶC BIỆT: Lưu ý thực hành Nha khoa (Dental Considerations).</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-slate-400">Xem nhanh thuốc:</span>
+            <button class="px-2.5 py-1.5 rounded-lg bg-rose-50 text-rose-800 border border-rose-200 text-xs font-bold hover:bg-rose-100 transition" onclick="loadDrug('bisphosphonate')">Alendronate (BRONJ)</button>
+            <button class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-800 transition" onclick="loadDrug('articaine')">Articaine + Epinephrine</button>
+            <button class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-800 transition" onclick="loadDrug('amoxicillin_clav')">Augmentin (Kháng sinh Nha)</button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-xs p-6 space-y-6">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-slate-100">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-mono font-bold text-rose-700 bg-rose-50 border border-rose-200 px-2 py-0.5 rounded-md" id="drug-class">Nhóm: Chống hủy xương / Bisphosphonate</span>
+                <span class="text-xs text-slate-400">ATC Code: M05BA04</span>
+              </div>
+              <h3 class="text-base font-extrabold text-slate-900 mt-1" id="drug-name">Axit Alendronic (Alendronate) — Fosamax®</h3>
+            </div>
+            <span class="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-lg font-mono">Goodman &amp; Gilman 14th Ed.</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+              <span class="font-bold text-slate-900 flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="cpu" aria-hidden="true" class="lucide lucide-cpu w-3.5 h-3.5 text-slate-500"><path d="M12 20v2"></path><path d="M12 2v2"></path><path d="M17 20v2"></path><path d="M17 2v2"></path><path d="M2 12h2"></path><path d="M2 17h2"></path><path d="M2 7h2"></path><path d="M20 12h2"></path><path d="M20 17h2"></path><path d="M20 7h2"></path><path d="M7 20v2"></path><path d="M7 2v2"></path><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="8" y="8" width="8" height="8" rx="1"></rect></svg> Cơ chế tác dụng (MOA):</span>
+              <p class="text-slate-600 leading-relaxed" id="drug-moa">Ức chế enzym Farnesyl pyrophosphate (FPP) synthase trong hủy cốt bào, làm rối loạn chuỗi prenylation protein và kích hoạt quá trình tự chết (Apoptosis) của hủy cốt bào.</p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+              <span class="font-bold text-slate-900 flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" aria-hidden="true" class="lucide lucide-activity w-3.5 h-3.5 text-slate-500"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg> Tác dụng &amp; Chỉ định:</span>
+              <p class="text-slate-600 leading-relaxed" id="drug-ind">Làm chậm tiêu xương, tăng mật độ khoáng chất xương. Chỉ định trong Loãng xương sau mãn kinh, bệnh Paget xương, di căn ung thư vào xương.</p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+              <span class="font-bold text-slate-900 flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield-x" aria-hidden="true" class="lucide lucide-shield-x w-3.5 h-3.5 text-slate-500"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m14.5 9.5-5 5"></path><path d="m9.5 9.5 5 5"></path></svg> Chống chỉ định:</span>
+              <p class="text-slate-600 leading-relaxed" id="drug-contra">Hẹp thực quản, không thể đứng hoặc ngồi thẳng trong 30 phút, hạ canxi máu nặng, suy thận nặng (eGFR &lt; 35 mL/phút).</p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+              <span class="font-bold text-slate-900 flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="alert-circle" aria-hidden="true" class="lucide lucide-alert-circle w-3.5 h-3.5 text-slate-500"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg> Tác dụng phụ (ADR):</span>
+              <p class="text-slate-600 leading-relaxed" id="drug-adr">Loét thực quản cấp, kích ứng dạ dày, đau cơ xương khớp nặng, hoại tử xương hàm do thuốc (MRONJ/BRONJ), gãy xương đùi không điển hình.</p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+              <span class="font-bold text-slate-900 flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shuffle" aria-hidden="true" class="lucide lucide-shuffle w-3.5 h-3.5 text-slate-500"><path d="m18 14 4 4-4 4"></path><path d="m18 2 4 4-4 4"></path><path d="M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22"></path><path d="M2 6h1.972a4 4 0 0 1 3.6 2.2"></path><path d="M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45"></path></svg> Tương tác thuốc:</span>
+              <p class="text-slate-600 leading-relaxed" id="drug-inter">Canxi, sắt, thuốc kháng acid làm mất sinh khả dụng nếu uống cùng. Dùng chung NSAID tăng nguy cơ loét đường tiêu hóa.</p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+              <span class="font-bold text-slate-900 flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="clock" aria-hidden="true" class="lucide lucide-clock w-3.5 h-3.5 text-slate-500"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg> Dược động học lâm sàng:</span>
+              <p class="text-slate-600 leading-relaxed" id="drug-pk">Sinh khả dụng đường uống rất thấp (&lt; 1%). Gắn vĩnh viễn vào chất nền hydroxyapatite xương, thời gian bán thải (T1/2) trong xương kéo dài hơn 10 năm!</p>
+            </div>
+          </div>
+
+          <!-- SPECIAL DENTAL CONSIDERATIONS BOX (MANDATORY REQUIREMENT) -->
+          <div class="p-4 rounded-xl bg-rose-50/80 border border-rose-300 space-y-2">
+            <div class="flex items-center gap-2 text-xs font-bold text-rose-900">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="alert-octagon" aria-hidden="true" class="lucide lucide-alert-octagon w-4 h-4 text-rose-700"><path d="M12 16h.01"></path><path d="M12 8v4"></path><path d="M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z"></path></svg>
+              <span class="">ĐẶC BIỆT: LƯU Ý THỰC HÀNH NHA KHOA (DENTAL CONSIDERATIONS):</span>
+            </div>
+            <div class="text-xs text-rose-950 space-y-2 leading-relaxed" id="drug-dental">
+              <p class=""><strong>1. Nguy cơ Hoại tử xương hàm do thuốc (MRONJ/BRONJ):</strong> Xương hàm có tốc độ tái tạo (turnover) cao gấp 10 lần xương dài do vi chấn thương nhai. Thuốc làm ức chế lành xương màng đáy, phơi bày xương hoại tử sau nhổ răng hoặc phẫu thuật nha chu.</p>
+              <p class=""><strong>2. Quy trình tiền phẫu Răng Hàm Mặt:</strong> Bệnh nhân dùng Bisphosphonate đường uống &gt; 4 năm hoặc dùng đồng thời Corticosteroid có nguy cơ cao. Cần hoàn tất mọi can thiệp nhổ răng, điều trị tủy trước khi bắt đầu dùng thuốc chống hủy xương.</p>
+              <p class=""><strong>3. Biện pháp thay thế:</strong> Ưu tiên điều trị bảo tồn nội nha, cắt chóp thay vì nhổ răng sang chấn. Nếu bắt buộc nhổ răng, cần khâu kín vạt không căng cơ, dùng kháng sinh dự phòng Amoxicillin + Metronidazole và nước súc miệng Chlorhexidine 0.12% trước &amp; sau mổ.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW: CLINICAL REASONING & CASE VIGNETTES ==================== -->
+      <section class="space-y-6 max-w-7xl mx-auto hidden" id="view-clinicalcases">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200">
+          <div>
+            <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+              <span class="p-1.5 rounded-xl bg-emerald-50 text-emerald-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="git-pull-request" aria-hidden="true" class="lucide lucide-git-pull-request w-4 h-4"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg></span>
+              Luyện Biện luận Ca Lâm sàng (Clinical Reasoning &amp; Vignettes)
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">Tình huống ca bệnh học thuật mô phỏng liên môn: Bệnh sử, Triệu chứng chìa khóa, Biện luận từng bước &amp; Cơ chế bệnh sinh.</p>
+          </div>
+          <span class="text-[11px] font-mono text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-md font-semibold">
+            Fictional Educational Scenario
+          </span>
+        </div>
+
+        <div class="p-3 bg-slate-900 text-white rounded-xl text-xs flex items-center justify-between border border-slate-800">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="graduation-cap" aria-hidden="true" class="lucide lucide-graduation-cap w-4 h-4 text-emerald-400"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"></path><path d="M22 10v6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></svg>
+            <span class=""><strong>Ca bệnh mô phỏng học thuật:</strong> Dữ liệu giả định được thiết kế để rèn luyện tư duy biện luận logic BSNT.</span>
+          </div>
+          <button class="text-xs text-teal-300 hover:underline" onclick="switchCase()">Đổi ca lâm sàng</button>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-xs p-6 space-y-6">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Bệnh cảnh tiếp nhận (Case Vignette)</span>
+              <span class="text-xs font-mono text-slate-500" id="case-id">Mã ca: RHM-MED-2025-04</span>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 space-y-2 leading-relaxed" id="case-desc">
+              <p class=""><strong>Bệnh nhân:</strong> Nam, 58 tuổi, đến khám vì sưng đau vùng dưới hàm và sàn miệng bên phải lan nhanh sang bên trái trong 48 giờ qua, nuốt nghẹn, sốt cao 39.2°C, thở rít và nói giọng ngậm hạt thị.</p>
+              <p class=""><strong>Tiền sử:</strong> Đái tháo đường type 2 kiểm soát kém (HbA1c = 9.8%). Có đau nhức răng hàm lớn thứ hai hàm dưới bên phải (R47) cách đây 2 tuần nhưng không điều trị nha khoa dứt điểm.</p>
+              <p class=""><strong>Khám thực thể:</strong> Vùng dưới hàm hai bên sưng nề cứng như gỗ, không có dấu hiệu chuyển sóng (non-fluctuant), đáy lưỡi bị đội lên cao áp sát vòm miệng cứng, khít hàm (há miệng &lt; 15mm).</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+            <div class="p-4 rounded-xl border border-slate-200 bg-white space-y-1.5">
+              <span class="font-bold text-slate-900 flex items-center gap-1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="key" aria-hidden="true" class="lucide lucide-key w-3.5 h-3.5 text-rose-600"><path d="m2 21 9.6-9.6"></path><path d="m7.5 15.5 2.3 2.3a1 1 0 0 1 0 1.4l-2.1 2.1a1 1 0 0 1-1.4 0L4 19"></path><circle cx="15.5" cy="7.5" r="5.5"></circle></svg> 1. Triệu chứng chìa khóa (Key Findings):
+              </span>
+              <p class="text-slate-600">• Sưng cứng hai bên dưới hàm + dưới lưỡi (Tam giác giải phẫu).</p>
+              <p class="text-slate-600">• Đáy lưỡi đội cao gây khó thở, giọng ngậm hạt thị.</p>
+              <p class="text-slate-600">• Khởi nguồn từ nhiễm trùng quanh chóp răng cối dưới R47.</p>
+            </div>
+
+            <div class="p-4 rounded-xl border border-slate-200 bg-white space-y-1.5">
+              <span class="font-bold text-slate-900 flex items-center gap-1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="help-circle" aria-hidden="true" class="lucide lucide-help-circle w-3.5 h-3.5 text-indigo-600"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg> 2. Chẩn đoán phân biệt chính:
+              </span>
+              <p class="text-slate-600">• <strong>Viêm tấy lan tỏa sàn miệng (Ludwig's Angina)</strong> - Nghĩ nhiều nhất.</p>
+              <p class="text-slate-600">• Áp xe quanh amiđan / Áp xe thành sau họng (Quinsy).</p>
+              <p class="text-slate-600">• Viêm tuyến mang tai / Tuyến dưới hàm cấp tính mưng mủ.</p>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-teal-50/70 border border-teal-200 space-y-3 text-xs text-teal-950">
+            <div class="font-bold flex items-center gap-1.5 text-teal-900">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle-2" aria-hidden="true" class="lucide lucide-check-circle-2 w-4 h-4 text-teal-700"><circle cx="12" cy="12" r="10"></circle><path d="m16 9-5.5 5.5L8 12"></path></svg>
+              3. Biện luận Lâm sàng từng bước &amp; Xử trí khẩn cấp (Protocol):
+            </div>
+            <div class="space-y-2">
+              <p class=""><strong>Bước 1 (Ưu tiên sống còn hàng đầu):</strong> Bảo vệ đường thở ngay lập tức! Do phù nề sàn miệng chèn ép nắp thanh môn, đặt nội khí quản qua đường miệng có nguy cơ thất bại cao và co thắt thanh quản. Chuẩn bị <strong>Mở khí quản cấp cứu (Tracheostomy)</strong> hoặc đặt NKQ qua mũi bằng ống soi mềm.</p>
+              <p class=""><strong>Bước 2:</strong> Kháng sinh tĩnh mạch liều cao phổ rộng phối hợp kỵ khí (Ceftriaxone + Metronidazole hoặc Carbapenem).</p>
+              <p class=""><strong>Bước 3:</strong> Phẫu thuật rạch dẫn lưu rộng vùng dưới hàm giải áp khoang cổ sâu, loại bỏ răng nguyên nhân R47.</p>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5 text-xs text-slate-700">
+            <span class="font-bold text-slate-900 flex items-center gap-1.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" aria-hidden="true" class="lucide lucide-activity w-3.5 h-3.5 text-amber-600"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg> 4. Phân tích nguyên lý cơ chế bệnh sinh (Pathophysiology):
+            </span>
+            <p class="leading-relaxed">Chóp chân răng cối lớn R47, R48 nằm thấp hơn <strong>đường gờ cơ hàm-móng (Mylohyoid line)</strong>. Do đó, ổ mủ từ chóp răng khi phá vỡ bản xương trong sẽ trực tiếp xâm nhập vào <strong>Khoang dưới hàm (Submandibular space)</strong> thay vì khoang dưới lưỡi. Nhiễm trùng lan nhanh không ranh giới vỏ bao qua cân cổ sâu, vi khuẩn kỵ khí sinh hơi gây hoại tử mô nặng.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW: FLASHCARDS & SPACED REPETITION ==================== -->
+      <section class="space-y-6 max-w-7xl mx-auto" id="view-flashcards">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200">
+          <div>
+            <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+              <span class="p-1.5 rounded-xl bg-cyan-50 text-cyan-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="copy" aria-hidden="true" class="lucide lucide-copy w-4 h-4"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></span>
+              Thẻ nhớ Active Recall &amp; Spaced Repetition (4 Định dạng)
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">Học tập chủ động với 4 khuôn mẫu thẻ: Q&amp;A, Định nghĩa, Bảng so sánh và Tiêu bản hình ảnh.</p>
+          </div>
+          <span class="text-xs font-mono bg-cyan-50 text-cyan-800 border border-cyan-200 px-2.5 py-1 rounded-md font-bold" id="fc-count">Thẻ 1 / 4</span>
+        </div>
+
+        <!-- Format Selector Tabs -->
+        <div class="flex items-center gap-2 border-b border-slate-200 pb-2 overflow-x-auto">
+          <button class="fc-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-white" onclick="switchFCType(0, this)">1. Hỏi - Đáp (Q&amp;A)</button>
+          <button class="fc-tab px-3 py-1.5 rounded-lg text-xs font-medium bg-white text-slate-600 border border-slate-200" onclick="switchFCType(1, this)">2. Định nghĩa (Definition)</button>
+          <button class="fc-tab px-3 py-1.5 rounded-lg text-xs font-medium bg-white text-slate-600 border border-slate-200" onclick="switchFCType(2, this)">3. Bảng so sánh (Comparison)</button>
+          <button class="fc-tab px-3 py-1.5 rounded-lg text-xs font-medium bg-white text-slate-600 border border-slate-200" onclick="switchFCType(3, this)">4. Tiêu bản hình ảnh (Image)</button>
+        </div>
+
+        <div class="max-w-2xl mx-auto">
+          <div class="bg-white rounded-2xl border-2 border-slate-200 p-8 shadow-sm space-y-6 min-h-[300px] flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between text-xs text-slate-400">
+                <span class="font-bold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded font-mono" id="fc-cat">Nha chu &amp; Miễn dịch</span>
+                <span class="font-mono text-[11px]" id="fc-interval">Chu kỳ: Day 3</span>
+              </div>
+              <div class="pt-2">
+                <h3 class="text-sm sm:text-base font-bold text-slate-900 leading-snug" id="fc-front">
+                  Tại sao nồng độ Matrix Metalloproteinases (MMP-8) tăng cao trong dịch rãnh nướu lại là dấu hiệu chỉ điểm phá hủy mô nha chu tiến triển?
+                </h3>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 leading-relaxed hidden" id="fc-back">
+              <div class="font-bold text-teal-900 mb-1 flex items-center gap-1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle-2" aria-hidden="true" class="lucide lucide-check-circle-2 w-3.5 h-3.5 text-teal-700"><circle cx="12" cy="12" r="10"></circle><path d="m16 9-5.5 5.5L8 12"></path></svg> Lời giải Active Recall:
+              </div>
+              <p id="fc-ans" class="">
+                MMP-8 (Collagenase bạch cầu đa nhân trung tính) là enzyme chủ chốt phân hủy các sợi Collagen type I và III của dây chằng nha chu. Sự giải phóng ồ ạt MMP-8 khi bị vi khuẩn P. gingivalis kích thích làm mất bám dính lâm sàng và hình thành túi nha chu sâu. Thuốc Doxycycline liều thấp 20mg (Periostat®) có tác dụng ức chế trực tiếp enzym này.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <button onclick="flipFC()" class="w-full sm:w-auto px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-xl transition" id="fc-btn-toggle">
+                Lật mặt sau xem lời giải
+              </button>
+
+              <!-- Spaced repetition rating -->
+              <div class="flex items-center gap-1.5 w-full sm:w-auto justify-end">
+                <button onclick="rateFC('again')" class="px-2.5 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-200 font-bold text-[11px] transition">
+                  Lại (&lt;10p)
+                </button>
+                <button onclick="rateFC('hard')" class="px-2.5 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 font-bold text-[11px] transition">
+                  Khó (1 ngày)
+                </button>
+                <button onclick="rateFC('good')" class="px-2.5 py-1.5 rounded-lg bg-teal-50 hover:bg-teal-100 text-teal-800 border border-teal-200 font-bold text-[11px] transition">
+                  Tốt (3 ngày)
+                </button>
+                <button onclick="rateFC('easy')" class="px-2.5 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold text-[11px] transition">
+                  Dễ (7 ngày)
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 2: SUMMARIZER ==================== -->
+      <section class="space-y-6 max-w-7xl mx-auto hidden" id="view-summarizer">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+          <div>
+            <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+              <span class="p-1.5 rounded-xl bg-teal-50 text-teal-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-text" aria-hidden="true" class="lucide lucide-file-text w-4 h-4"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg></span>
+              Tóm tắt bài giảng &amp; Giáo trình Y khoa
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">Cấu trúc hóa: Sinh lý bệnh, bảng so sánh, bẫy lâm sàng và thuật ngữ quốc tế.</p>
+          </div>
+        </div>
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+          <div class="p-4 rounded-xl bg-teal-50/70 border border-teal-200 text-xs">
+            <h4 class="font-bold text-teal-900 mb-1">Cơ chế Sinh lý học: Hệ thống dẫn truyền tim mạch</h4>
+            <p class="text-teal-950 leading-relaxed">Nút SA (Chủ nhịp 60-100 bpm) ──&gt; Nút AV (Làm chậm 0.1s cho nhĩ đổ đầy thất) ──&gt; Bó His &amp; Mạng Purkinje (Truyền siêu tốc 2-4 m/s khử cực thất đồng bộ).</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 3: EXPLAINER ==================== -->
+      <section class="space-y-6 max-w-7xl mx-auto hidden" id="view-explainer">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+          <div>
+            <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+              <span class="p-1.5 rounded-xl bg-amber-50 text-amber-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="lightbulb" aria-hidden="true" class="lucide lucide-lightbulb w-4 h-4"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg></span>
+              Giải thích kiến thức &amp; Đa góc nhìn (5 Modes)
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">ELI5, Ca bệnh, Vi mô học thuật, Lâm sàng và Hỏi đáp Socratic.</p>
+          </div>
+        </div>
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs space-y-3 text-xs">
+          <div class="p-3.5 bg-amber-50/70 rounded-xl border border-amber-200">
+            <span class="font-bold text-amber-900 block mb-1">Ẩn dụ trực quan: Thuốc Ức Chế Men Chuyển (ACEi)</span>
+            <p class="text-amber-950">Như chiếc tay kéo kẻ bóp vòi nước (Angiotensin II) ra để giảm áp lực dòng chảy. Tác dụng phụ ho do tích tụ chất kích ứng phế quản Bradykinin.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 4: QUIZ ==================== -->
+      <section class="space-y-6 max-w-7xl mx-auto hidden" id="view-quiz">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+          <div>
+            <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+              <span class="p-1.5 rounded-xl bg-indigo-50 text-indigo-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="help-circle" aria-hidden="true" class="lucide lucide-help-circle w-4 h-4"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg></span>
+              Luyện đề &amp; Trắc nghiệm phản xạ BSNT
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">Mô phỏng đề thi Bác sĩ Nội trú và Chứng chỉ hành nghề.</p>
+          </div>
+        </div>
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs space-y-3 text-xs">
+          <p class="font-bold text-slate-900">Câu hỏi: Nhồi máu cơ tim thành dưới có biến chứng Thất phải (ST chênh DII, DIII, aVF) chống chỉ định tuyệt đối thuốc gì?</p>
+          <div class="p-3 rounded-xl bg-emerald-50 text-emerald-900 border border-emerald-200 font-semibold">
+            Đáp án: Nitroglycerin và thuốc lợi tiểu (vì thất phải phụ thuộc hoàn toàn vào tiền gánh).
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 5: PLANNER ==================== -->
+      <section class="space-y-6 max-w-7xl mx-auto hidden" id="view-planner">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+          <div>
+            <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+              <span class="p-1.5 rounded-xl bg-emerald-50 text-emerald-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar-clock" aria-hidden="true" class="lucide lucide-calendar-clock w-4 h-4"><path d="M16 14v2.2l1.6 1"></path><path d="M16 2v3"></path><path d="M21 7.338V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h2.338"></path><path d="M3 9h5.859"></path><path d="M8 2v3"></path><circle cx="16" cy="16" r="6"></circle></svg></span>
+              Lộ trình Ôn tập Spaced Repetition &amp; Pomodoro
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">Phân bổ chu kỳ nhắc lại: Day 1, Day 3, Day 7, Day 14 theo quy luật Ebbinghaus.</p>
+          </div>
+        </div>
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs text-xs space-y-2">
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 flex justify-between items-center">
+            <span class="">Hố Chân Bướm Hàm &amp; Dây V2 — Day 7 Review</span>
+            <span class="text-teal-700 font-bold font-mono">Pomodoro 25:00</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Client-side Logic Script -->
+  <script>
+    // 17 Subjects Dataset
+    const subjectsData = [
+      { id: 'anat', name: 'Giải phẫu học (Anatomy)', cat: 'basic', code: 'MED-101', icon: 'bone', color: 'amber', count: '48 bài • Netter 7th' },
+      { id: 'histo', name: 'Mô học & Tiêu bản (Histology)', cat: 'basic', code: 'MED-102', icon: 'microscope', color: 'indigo', count: '32 tiêu bản H&E' },
+      { id: 'physio', name: 'Sinh lý học (Physiology)', cat: 'basic', code: 'MED-103', icon: 'activity', color: 'teal', count: '40 bài • Guyton' },
+      { id: 'biochem', name: 'Hóa sinh y học (Biochemistry)', cat: 'basic', code: 'MED-104', icon: 'atom', color: 'cyan', count: '28 chu trình Harper' },
+      { id: 'microbio', name: 'Vi sinh y học (Microbiology)', cat: 'basic', code: 'MED-105', icon: 'bug', color: 'emerald', count: '35 chủng khuẩn' },
+      { id: 'immuno', name: 'Miễn dịch học (Immunology)', cat: 'basic', code: 'MED-106', icon: 'shield-check', color: 'blue', count: '24 cơ chế tế bào' },
+      { id: 'patho', name: 'Giải phẫu bệnh (Pathology)', cat: 'basic', code: 'MED-107', icon: 'file-search', color: 'rose', count: '50 ca bệnh Robbins' },
+      { id: 'pharma', name: 'Dược lý học (Pharmacology)', cat: 'basic', code: 'MED-108', icon: 'pill', color: 'red', count: '65 nhóm thuốc' },
+      { id: 'genmed', name: 'Y khoa Tổng quát (General Medicine)', cat: 'clinical', code: 'MED-201', icon: 'stethoscope', color: 'teal', count: '55 hội chứng Harrison' },
+      { id: 'dent', name: 'Khối Răng Hàm Mặt Cơ sở (Dentistry)', cat: 'dental', code: 'DEN-101', icon: 'sparkles', color: 'amber', count: '18 bài tổng quan' },
+      { id: 'oralanat', name: 'Giải phẫu Răng & Miệng (Oral Anatomy)', cat: 'dental', code: 'DEN-102', icon: 'smile', color: 'yellow', count: '32 bộ răng Wheeler' },
+      { id: 'oralpath', name: 'Bệnh học Miệng (Oral Pathology)', cat: 'dental', code: 'DEN-103', icon: 'alert-triangle', color: 'purple', count: '42 ca Nevile' },
+      { id: 'perio', name: 'Nha chu học (Periodontology)', cat: 'dental', code: 'DEN-104', icon: 'shield', color: 'emerald', count: '30 bài Carranza 13th' },
+      { id: 'endo', name: 'Nội nha học (Endodontics)', cat: 'dental', code: 'DEN-105', icon: 'zap', color: 'rose', count: '26 quy trình Cohen' },
+      { id: 'prosth', name: 'Phục hình Răng (Prosthodontics)', cat: 'dental', code: 'DEN-106', icon: 'layers', color: 'blue', count: '34 ca Shillingburg' },
+      { id: 'dentmat', name: 'Vật liệu Nha khoa (Dental Materials)', cat: 'dental', code: 'DEN-107', icon: 'box', color: 'slate', count: '22 hợp chất Craig' },
+      { id: 'omfs', name: 'Phẫu thuật Hàm Mặt (OMFS)', cat: 'dental', code: 'DEN-108', icon: 'scissors', color: 'red', count: '45 ca lâm sàng Peterson' }
+    ];
+
+    function renderSubjects(list) {
+      const container = document.getElementById('subjects-container');
+      if (!container) return;
+      container.innerHTML = list.map(s => `
+        <div class="bg-white p-4 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-xs transition space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
+              <i class="w-4 h-4" data-lucide="${s.icon}"></i>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-bold">${s.code}</span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">${s.name}</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">${s.count}</p>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-[10px] text-teal-700 font-semibold uppercase tracking-wider">${s.cat === 'dental' ? 'Răng Hàm Mặt' : s.cat === 'basic' ? 'Y cơ sở' : 'Lâm sàng'}</span>
+            <button onclick="navigateTo('anatomy')" class="text-slate-600 hover:text-teal-700 font-medium text-[11px] flex items-center gap-1">Khảo sát <i class="w-3 h-3" data-lucide="chevron-right"></i></button>
+          </div>
+        </div>
+      `).join('');
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function filterSubs(cat, btn) {
+      document.querySelectorAll('.sub-btn').forEach(b => {
+        b.className = 'sub-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-white text-slate-700 border border-slate-200 hover:bg-slate-50';
+      });
+      btn.className = 'sub-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-white';
+      if (cat === 'all') renderSubjects(subjectsData);
+      else renderSubjects(subjectsData.filter(s => s.cat === cat));
+    }
+
+    function addCustomSubject() {
+      const name = prompt('Nhập tên chuyên ngành mới (VD: Chẩn đoán hình ảnh RHM):');
+      if (name) {
+        subjectsData.unshift({
+          id: 'custom_' + Date.now(),
+          name: name + ' (Tự chọn)',
+          cat: 'dental',
+          code: 'CUSTOM',
+          icon: 'plus',
+          color: 'teal',
+          count: '0 bài • Đang cập nhật'
+        });
+        renderSubjects(subjectsData);
+      }
+    }
+
+    // Navigation Switcher
+    const viewIds = ['dashboard', 'meddent-library', 'anatomy', 'histology', 'pharmacol', 'clinicalcases', 'flashcards', 'summarizer', 'explainer', 'quiz', 'planner'];
+    function navigateTo(targetId) {
+      viewIds.forEach(id => {
+        const el = document.getElementById('view-' + id);
+        if (el) el.classList.add('hidden');
+        const btn = document.getElementById('btn-nav-' + id);
+        if (btn) {
+          btn.className = 'nav-item w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition';
+        }
+      });
+      const activeEl = document.getElementById('view-' + targetId);
+      if (activeEl) activeEl.classList.remove('hidden');
+      const activeBtn = document.getElementById('btn-nav-' + targetId);
+      if (activeBtn) {
+        activeBtn.className = 'nav-item w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold transition bg-teal-500/15 text-teal-300 border border-teal-500/20';
+      }
+      const bTitle = document.getElementById('header-breadcrumb');
+      if (bTitle) {
+        const titles = {
+          'dashboard': 'Tổng quan',
+          'meddent-library': 'Thư viện 17 Chuyên ngành',
+          'anatomy': 'Trợ lý Giải phẫu 9 yếu tố',
+          'histology': 'Trợ lý Mô học & Tiêu bản',
+          'pharmacol': 'Dược lý & Đơn Nha',
+          'clinicalcases': 'Biện luận Ca lâm sàng',
+          'flashcards': 'Thẻ nhớ Spaced Repetition',
+          'summarizer': 'Tóm tắt bài giảng',
+          'explainer': 'Giải thích 5 Modes',
+          'quiz': 'Trắc nghiệm BSNT',
+          'planner': 'Lộ trình & Pomodoro'
+        };
+        bTitle.textContent = titles[targetId] || targetId;
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMobileSidebar() {
+      const sb = document.getElementById('main-sidebar');
+      const ol = document.getElementById('mobile-overlay');
+      if (sb && ol) {
+        sb.classList.toggle('-translate-x-full');
+        ol.classList.toggle('hidden');
+      }
+    }
+
+    // Histology interactions
+    function revealHisto() {
+      const ans = document.getElementById('histo-ans');
+      if (ans) ans.classList.remove('hidden');
+    }
+
+    function loadHisto(type) {
+      const title = document.getElementById('histo-title');
+      const desc = document.getElementById('histo-desc');
+      const stain = document.getElementById('histo-stain');
+      if (type === 'dej') {
+        title.textContent = 'Ranh giới Men - Ngà (Dentino-Enamel Junction - DEJ)';
+        desc.textContent = 'Trụ men hình lục giác, đường vạch Retzius và các ống ngà lượn cong hình chữ S.';
+        stain.textContent = 'Nhuộm H&E (40X)';
+      } else if (type === 'pdl') {
+        title.textContent = 'Dây chằng nha chu (Periodontal Ligament - PDL)';
+        desc.textContent = 'Bó sợi Sharpey bám sâu từ xê-măng chân răng xuyên vào bản xương ổ răng, nguyên bào sợi dồi dào.';
+        stain.textContent = 'Nhuộm Trichrome (20X)';
+      } else {
+        title.textContent = 'Biểu mô Niêm mạc Miệng (Oral Mucosa)';
+        desc.textContent = 'Biểu mô vảy tầng sừng hóa / cận sừng hóa, nhú mô liên kết đội sâu, màng đáy liên tục.';
+        stain.textContent = 'Nhuộm H&E (40X)';
+      }
+    }
+
+    // Anatomy samples
+    function loadAnatomy(type) {
+      const title = document.getElementById('anat-title');
+      if (type === 'v3_spix') {
+        title.textContent = 'Hồ sơ 9 Thành tố: Thần kinh Xương ổ răng dưới & Lỗ hàm dưới (Foramen Mandibulare)';
+      } else if (type === 'pterygopalatine') {
+        title.textContent = 'Hồ sơ 9 Thành tố: Hố Chân Bướm Hàm (Pterygopalatine Fossa) & Dây V2';
+      } else {
+        title.textContent = 'Hồ sơ 9 Thành tố: Dây thần kinh Mặt (VII) & Tuyến mang tai';
+      }
+    }
+
+    function runAnatomy() {
+      alert('Đã tải và cấu trúc hóa toàn diện 9 thành tố giải phẫu theo chuẩn Terminologia Anatomica!');
+    }
+
+    // Flashcard interactions
+    const fcSamples = [
+      {
+        cat: 'Nha chu & Miễn dịch',
+        interval: 'Chu kỳ: Day 3',
+        front: 'Tại sao nồng độ Matrix Metalloproteinases (MMP-8) tăng cao trong dịch rãnh nướu lại là dấu hiệu chỉ điểm phá hủy mô nha chu tiến triển?',
+        ans: 'MMP-8 là collagenase bạch cầu trung tính phá hủy sợi collagen type I và III của dây chằng nha chu. Doxycycline liều thấp 20mg (Periostat®) có tác dụng ức chế trực tiếp enzym này.'
+      },
+      {
+        cat: 'Giải phẫu Đầu Mặt Cổ',
+        interval: 'Chu kỳ: Day 7',
+        front: 'Định nghĩa: Tam giác dưới hàm (Submandibular triangle) có các giới hạn giải phẫu nào và chứa những cấu trúc nguy cơ gì?',
+        ans: 'Giới hạn: Bờ dưới xương hàm dưới và 2 bụng cơ hai thân. Cấu trúc: Tuyến nước bọt dưới hàm, ĐM mặt, TM mặt, và Dây thần kinh sọ XII (Hạ thiệt).'
+      },
+      {
+        cat: 'Dược lý Lâm sàng Nha',
+        interval: 'Chu kỳ: Day 14',
+        front: 'Bảng so sánh: Điểm khác biệt mấu chốt giữa Thuốc tê Lidocaine 2% và Articaine 4% trong gây tê nha khoa?',
+        ans: 'Articaine có vòng thiophene tăng tính tan trong mỡ, khuếch tán qua vỏ xương tốt hơn (có thể thấm xương hàm dưới) và chuyển hóa chủ yếu bởi esterase huyết tương (t1/2 ngắn hơn 20 phút vs 90 phút của Lidocaine).'
+      },
+      {
+        cat: 'Mô học Răng',
+        interval: 'Chu kỳ: Day 1',
+        front: 'Tiêu bản hình ảnh: Đặc điểm phân biệt Men răng (Enamel) và Ngà răng (Dentin) dưới kính hiển vi quang học?',
+        ans: 'Men răng có các trụ men dạng vảy cá hoặc lỗ khóa không chứa tế bào sống (96% vô cơ). Ngà răng chứa các ống ngà song song có đuôi bào tương của nguyên bào ngà (70% vô cơ).'
+      }
+    ];
+
+    let currentFCIdx = 0;
+    function switchFCType(idx, btn) {
+      currentFCIdx = idx;
+      document.querySelectorAll('.fc-tab').forEach(b => {
+        b.className = 'fc-tab px-3 py-1.5 rounded-lg text-xs font-medium bg-white text-slate-600 border border-slate-200';
+      });
+      btn.className = 'fc-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-white';
+      const item = fcSamples[idx];
+      document.getElementById('fc-cat').textContent = item.cat;
+      document.getElementById('fc-interval').textContent = item.interval;
+      document.getElementById('fc-front').textContent = item.front;
+      document.getElementById('fc-ans').textContent = item.ans;
+      document.getElementById('fc-count').textContent = `Thẻ ${idx + 1} / 4`;
+      document.getElementById('fc-back').classList.add('hidden');
+      document.getElementById('fc-btn-toggle').textContent = 'Lật mặt sau xem lời giải';
+    }
+
+    function flipFC() {
+      const b = document.getElementById('fc-back');
+      const btn = document.getElementById('fc-btn-toggle');
+      if (b.classList.contains('hidden')) {
+        b.classList.remove('hidden');
+        btn.textContent = 'Ẩn mặt sau';
+      } else {
+        b.classList.add('hidden');
+        btn.textContent = 'Lật mặt sau xem lời giải';
+      }
+    }
+
+    function rateFC(type) {
+      alert(`Đã ghi nhận độ nhớ (${type.toUpperCase()})! Thuật toán Spaced Repetition đã tự động cập nhật lịch ôn tập tiếp theo.`);
+      const nextIdx = (currentFCIdx + 1) % fcSamples.length;
+      const tabBtns = document.querySelectorAll('.fc-tab');
+      if (tabBtns[nextIdx]) switchFCType(nextIdx, tabBtns[nextIdx]);
+    }
+
+    function switchCase() {
+      alert('Đã chuyển sang Ca lâm sàng tiếp theo: "Chấn thương Gãy Le Fort II và Biến chứng Tổn thương Ống Lệ Mũi"!');
+    }
+
+    // Initialize
+    window.addEventListener('DOMContentLoaded', () => {
+      renderSubjects(subjectsData);
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+
+
+
+
+</body></html>
